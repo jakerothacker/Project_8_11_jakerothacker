@@ -42,6 +42,17 @@ while game_is_going:
         else:
             print("Invalid input: Please enter T or F")
 
-    print("done")
+    l = len(possible_answers)
+    i=0
+    while i<l: 
+        if possible_answers[i][possible_questions[count]] != answer:
+            possible_answers.pop(i)
+            i -= 1
+        i += 1
+        l = len(possible_answers)
     response = ""
     count += 1
+
+    for i in range(len(possible_answers)):
+        print(possible_answers[i]["name"] + " is a possible answer")
+    
