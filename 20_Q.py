@@ -19,9 +19,13 @@ dog: dict[str,any] = {
     "Can it be brown?": True
 }
 
-possible_answers = [cat, dog]
+possible_answers = [cat, dog] # List of answers as dictionaries so info is stored
 possible_questions = list (cat.keys())
-possible_questions.pop(0)   #removes the name of the dictionary so only keys to boolean values remain
+possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
+
+# Player picks an solution 
+
+
 game_is_going = True
 count = 0
 response = ""
@@ -29,7 +33,9 @@ answer: bool = True
 
 
 while game_is_going:
-  
+
+
+  # Player responds to the question
     while response != "T" and response != "F":
         response = input("T or F: " + possible_questions[count])
         if response == "T":
@@ -42,6 +48,8 @@ while game_is_going:
         else:
             print("Invalid input: Please enter T or F")
 
+
+# Remove answers that don't match the current question
     l = len(possible_answers)
     i=0
     while i<l: 
@@ -50,9 +58,15 @@ while game_is_going:
             i -= 1
         i += 1
         l = len(possible_answers)
+    
+    
+    
+    
+    # Gets ready for the next question
     response = ""
     count += 1
 
-    for i in range(len(possible_answers)):
-        print(possible_answers[i]["name"] + " is a possible answer")
-    
+# For when one possible answer remains
+    if len(possible_answers) == 1:
+        print("The answer is: " + possible_answers[0]["name"])
+        game_is_going = False 
