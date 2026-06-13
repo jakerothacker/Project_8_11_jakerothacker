@@ -22,11 +22,28 @@ dog: dict[str,any] = {
 possible_answers = [cat, dog] # List of answers as dictionaries so info is stored
 possible_questions = list (cat.keys())
 possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
-
+game_is_going = False
 # Player picks an solution 
+print("Let's play 20 questions!")
+while game_is_going == False:
+    solution = input("What are you thinking of? ")
+    for answer in possible_answers:
+        if answer["name"] == solution:
+            current_answer = answer
+            game_is_going = True
+            break
+        elif solution == "Help":
+            current_answer = "Help"
+            for answer in possible_answers:
+                print(answer["name"])
+            break
+        else:
+            current_answer = "None"
+    if current_answer == "None":
+        print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
+        
 
 
-game_is_going = True
 count = 0
 response = ""
 answer: bool = True
