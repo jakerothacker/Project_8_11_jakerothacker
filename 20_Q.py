@@ -30,16 +30,18 @@ answer: bool = True
 
 while game_is_going:
   
-    while response != ("T" or "F"):
+    while response != "T" and response != "F":
         response = input("T or F: " + possible_questions[count])
         if response == "T":
             answer = True
         elif response == "F":
             answer = False
-        elif response == "Quit" or response == "quit":
+        elif response == "Quit":
             game_is_going = False
             break
         else:
             print("Invalid input: Please enter T or F")
-    
-    
+
+    print("done")
+    response = ""
+    count += 1
