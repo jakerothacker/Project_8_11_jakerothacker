@@ -1,25 +1,75 @@
 cat: dict[str,any] = {
     "name": "cat",
-    "Is it physical?": True,
     "Is it an animal?": True,
     "Does it have four legs?": True,
     "Is it a plant?": False,
     "Is it a canine?": False,
     "Is it a feline?": True,
-    "Can it be brown?": True
+    "Can it be brown?": True,
+    "Is it round?": False,
+    "Is it an animal?": True,
+    "Is it red?": False,
+    "Is it orange?": False,
+    "Is it green?": False,
 }
 dog: dict[str,any] = {
     "name": "dog",
-    "Is it physical?": True,
     "Is it an animal?": True,
     "Does it have four legs?": True,
     "Is it a plant?": False,
     "Is it a canine?": True,
     "Is it a feline?": False,
-    "Can it be brown?": True
+    "Can it be brown?": True,
+    "Is it round?": False,
+    "Is it an animal?": True,
+    "Is it red?": False,
+    "Is it orange?": False,
+    "Is it green?": False,
+}
+apple: dict[str,any] = {
+    "name": "apple",
+    "Is it an animal?": False,
+    "Does it have four legs?": False,
+    "Is it a plant?": True,
+    "Is it a canine?": False,
+    "Is it a feline?": False,
+    "Can it be brown?": False,
+    "Is it round?": True,
+    "Is it an animal?": False,
+    "Is it red?": True,
+    "Is it orange?": False,
+    "Is it green?": False,
+}
+orange: dict[str,any] = {
+    "name": "orange",
+    "Is it an animal?": False,
+    "Does it have four legs?": False,
+    "Is it a plant?": True,
+    "Is it a canine?": False,
+    "Is it a feline?": False,
+    "Can it be brown?": False,
+    "Is it round?": True,
+    "Is it an animal?": False,
+    "Is it red?": False,
+    "Is it orange?": True,
+    "Is it green?": False,
+}
+tree: dict[str,any] = {
+    "name": "tree",
+    "Is it an animal?": False,
+    "Does it have four legs?": False,
+    "Is it a plant?": True,
+    "Is it a canine?": False,
+    "Is it a feline?": False,
+    "Can it be brown?": False,
+    "Is it round?": False,
+    "Is it an animal?": False,
+    "Is it red?": False,
+    "Is it orange?": False,
+    "Is it green?": True,
 }
 
-possible_answers = [cat, dog] # List of answers as dictionaries so info is stored
+possible_answers = [cat, dog, apple, orange, tree] # List of answers as dictionaries so info is stored
 possible_questions = list (cat.keys())
 possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
 game_is_going = False
@@ -87,3 +137,6 @@ while game_is_going:
     if len(possible_answers) == 1:
         print("The answer is: " + possible_answers[0]["name"])
         game_is_going = False 
+    elif len(possible_answers) == 0:
+        print("You stumped me. I don't know what you're thinking of. Please try again.")
+        game_is_going = False
