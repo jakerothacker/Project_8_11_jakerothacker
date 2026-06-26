@@ -1,3 +1,9 @@
+"""
+20_Questions
+Jake Rothacker
+This file contains a proof of concept for a 20 questions game that can be expended.
+6-26-2026
+"""
 import random
 
 cat: dict[str,any] = {
@@ -71,14 +77,14 @@ tree: dict[str,any] = {
     "Is it green?": True,
 }
 
-possible_answers = [cat, dog, apple, orange, tree] # List of answers as dictionaries so info is stored
+possible_answers = [cat, dog, apple, orange, tree] 
 possible_questions = list (cat.keys())
 possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
 random.shuffle(possible_questions) 
 
 
 game_is_going = False
-# Player picks an solution 
+
 print("Let's play 20 questions!")
 while game_is_going == False:
     solution = input("What are you thinking of? ")
@@ -97,7 +103,6 @@ while game_is_going == False:
     if current_answer == "None":
         print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
         
-
 
 count = 0
 response = ""
@@ -130,8 +135,6 @@ while game_is_going:
             i -= 1
         i += 1
         l = len(possible_answers)
-    
-    
     
     
     # Gets ready for the next question
