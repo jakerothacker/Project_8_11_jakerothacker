@@ -5,7 +5,7 @@ This file contains a proof of concept for a 20 questions game that can be expend
 6-26-2026
 """
 import random
-
+#replace dictionaries with inheriting classes to store attributes
 cat: dict[str,any] = {
     "name": "cat",
     "Is it an animal?": True,
@@ -77,14 +77,15 @@ tree: dict[str,any] = {
     "Is it green?": True,
 }
 
-possible_answers = [cat, dog, apple, orange, tree] 
-possible_questions = list (cat.keys())
-possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
-random.shuffle(possible_questions) 
+#This block will likely change 
+# possible_answers = [cat, dog, apple, orange, tree] 
+# possible_questions = list (cat.keys())
+# possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
+# random.shuffle(possible_questions) 
 
 
 game_is_going = False
-
+#This game setup will become a function
 print("Let's play 20 questions!")
 while game_is_going == False:
     solution = input("What are you thinking of? ")
@@ -108,7 +109,7 @@ count = 0
 response = ""
 answer: bool = True
 
-
+#The running of the game will be a function
 while game_is_going:
 
     while response != "T" and response != "F":
