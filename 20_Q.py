@@ -84,25 +84,41 @@ tree: dict[str,any] = {
 # random.shuffle(possible_questions) 
 
 
-game_is_going = False
-#This game setup will become a function
-print("Let's play 20 questions!")
-while game_is_going == False:
-    solution = input("What are you thinking of? ")
-    for answer in possible_answers:
-        if answer["name"] == solution:
-            current_answer = answer
-            game_is_going = True
-            break
-        elif solution == "Help":
-            current_answer = "Help"
-            for answer in possible_answers:
-                print(answer["name"])
-            break
+# game_is_going = False
+# #This game setup will become a function
+# print("Let's play 20 questions!")
+# while game_is_going == False:
+#     solution = input("What are you thinking of? ")
+#     for answer in possible_answers:
+#         if answer["name"] == solution:
+#             current_answer = answer
+#             game_is_going = True
+#             break
+#         elif solution == "Help":
+#             current_answer = "Help"
+#             for answer in possible_answers:
+#                 print(answer["name"])
+#             break
+#         else:
+#             current_answer = "None"
+#     if current_answer == "None":
+#         print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
+
+def game_setup():
+
+    possible_answers = []
+
+    print("Let's play 20 questions!")
+    while True:
+        response = input("What are you thinking of? ")
+        for answer in possible_answers:
+            if answer == response:
+                return response 
+        if response == "Help" or response == "help":
+            print(f"The possible answers are {possible_answers}")
         else:
-            current_answer = "None"
-    if current_answer == "None":
-        print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
+            print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
+
         
 
 count = 0
