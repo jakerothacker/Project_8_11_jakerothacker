@@ -14,7 +14,9 @@ class HasScales:
 class Answer:
     def __init__(self,name,*traits):
         self.name = name
-        self.traits = traits
+        for trait in traits:
+            self.trait = trait
+
 
 class Animal(Answer):
     def __init__(self,name,*traits):
@@ -25,8 +27,4 @@ class Animal(Answer):
 fish = Animal("Fish", [CanSwim(), HasScales()])
 
 print(isinstance(fish,Answer))
-
-
-
-
-
+print(isinstance(fish.CanSwim, CanSwim))
