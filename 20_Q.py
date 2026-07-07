@@ -77,15 +77,7 @@ tree: dict[str,any] = {
     "Is it green?": True,
 }
 
-#This block will likely change 
-# possible_answers = [cat, dog, apple, orange, tree] 
-# possible_questions = list (cat.keys())
-# possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
-# random.shuffle(possible_questions) 
 
-
-#game constants that are needed for game_setup and game_main_section go here until I find a better way
-possible_answers = []
 
 def game_setup():
 
@@ -143,3 +135,17 @@ def game_main_section(solution):
             return
 
 
+def main():
+    #game constants that are needed for game_setup and game_main_section go here until I find a better way
+    possible_answers = []
+    #This block will likely change 
+    # possible_answers = [cat, dog, apple, orange, tree] 
+    # possible_questions = list (cat.keys())
+    # possible_questions.pop(0)   # Removes the name of the dictionary so only keys to boolean values remain
+    # random.shuffle(possible_questions) 
+    solution = game_setup()
+    if solution != None:
+        game_main_section(solution)
+
+
+main()
