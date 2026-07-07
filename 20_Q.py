@@ -84,29 +84,10 @@ tree: dict[str,any] = {
 # random.shuffle(possible_questions) 
 
 
-# game_is_going = False
-# #This game setup will become a function
-# print("Let's play 20 questions!")
-# while game_is_going == False:
-#     solution = input("What are you thinking of? ")
-#     for answer in possible_answers:
-#         if answer["name"] == solution:
-#             current_answer = answer
-#             game_is_going = True
-#             break
-#         elif solution == "Help":
-#             current_answer = "Help"
-#             for answer in possible_answers:
-#                 print(answer["name"])
-#             break
-#         else:
-#             current_answer = "None"
-#     if current_answer == "None":
-#         print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
+#game constants that are needed for game_setup and game_main_section go here until I find a better way
+possible_answers = []
 
 def game_setup():
-
-    possible_answers = []
 
     print("Let's play 20 questions!")
     while True:
@@ -120,45 +101,45 @@ def game_setup():
             print("Sorry, I don't know what you're thinking of. Type 'Help' for possible answers.")
 
         
+def game_main_section(solution):
 
-count = 0
-response = ""
-answer: bool = True
-
-#The running of the game will be a function
-while game_is_going:
-
-    while response != "T" and response != "F":
-        response = input("T or F: " + possible_questions[count])
-        if response == "T":
-            answer = True
-        elif response == "F":
-            answer = False
-        elif response == "Quit":
-            game_is_going = False
-            break
-        else:
-            print("Invalid input: Please enter T or F")
-
-
-    l = len(possible_answers)
-    i=0
-    while i<l: 
-        if possible_answers[i][possible_questions[count]] != answer:
-            possible_answers.pop(i)
-            i -= 1
-        i += 1
-        l = len(possible_answers)
-    
-    
-    # Gets ready for the next question
+    count = 0
     response = ""
-    count += 1
+    while True:
+
+        while response != "T" and response != "F":
+            response = input("T or F: " + possible_questions[count])#this text will change when the classes are working
+            if response == "T":
+                answer = True
+            elif response == "F":
+                answer = False
+            elif response == "Quit":
+                return print("The game was exited")
+            else:
+                print("Invalid input: Please enter T or F")
 
 
-    if len(possible_answers) == 1:
-        print("The answer is: " + possible_answers[0]["name"])
-        game_is_going = False 
-    elif len(possible_answers) == 0:
-        print("You stumped me. I don't know what you're thinking of. Please try again.")
-        game_is_going = False
+        #this text will change when the classes are working
+        l = len(possible_answers)
+        i=0
+        while i<l: 
+            if possible_answers[i][possible_questions[count]] != answer:
+                possible_answers.pop(i)
+                i -= 1
+            i += 1
+            l = len(possible_answers)
+        
+        
+        # Gets ready for the next question
+        response = ""
+        count += 1
+
+
+        if len(possible_answers) == 1:
+            print("The answer is: " + possible_answers[0]["name"])
+            return 
+        elif len(possible_answers) == 0:
+            print("You stumped me. I don't know what you're thinking of. Please try again.")
+            return
+
+
